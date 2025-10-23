@@ -149,7 +149,7 @@ DATEDIFF('Encounters'[START], 'Encounters'[STOP], HOUR)
 
 ---
 
-### 🔁 Readmissions & Follow-up Visits(within 30 days) (Power Query Workflow)
+### 🔁 Readmissions & Follow-up Visits(within 30 days) (Apply SQL-like window functions in Power Query)
 
 #### Step-by-step in Power Query
 1. **Sort Data:**  
