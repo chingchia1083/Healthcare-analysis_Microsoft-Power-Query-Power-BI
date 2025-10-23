@@ -84,12 +84,11 @@ Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
 #### Power Query: Create Age Range Column
 - 🧮 Method 1: **M code**
      ```
-     m
       = if [Age] >= 100 then "100+"
         else Text.From(Number.RoundDown([Age]/10)*10) & "-" & Text.From(Number.RoundDown([Age]/10)*10 + 9)
      ```
 - 🧮 Method 2: 
-    -**Conditional Column**
+    **Conditional Column**
 
 - Visualizations: **Matrix Table**:
   - **Rows:** Encounter Class, Gender  
@@ -121,10 +120,10 @@ Displayed using a **Card Visual** for overall percentage of zero-payer encounter
 ---
 
 #### Top 10 Procedures by Frequency & Cost
-Created **Matrix visuals**:
-- **Rows:** Procedure Description  
-- **Values:** Count of IDs and Average Base Cost  
-- Applied **Top N Filter (10)** on Procedure Description by value count.
+- Visualizations: **Matrix visuals**
+  - **Rows:** Procedure Description  
+  - **Values:** Count of IDs and Average of total claim cost 
+- Applied **Top N Filter (10)** on Procedure Description by value (count of Id).
 
 🖼️ *Placeholder for visual:*  
 `![Top Procedures](images/top_procedures.png)`
@@ -140,17 +139,17 @@ Average_Length_Of_Stay =
 DATEDIFF('Encounters'[START], 'Encounters'[STOP], HOUR)
 ```
 
-Built a **Matrix**:
-- **Rows:** Age Range, Gender  
-- **Columns:** Encounter Class  
-- **Values:** Average LOS (in Hours)  
+- Visualizations:  **Matrix**:
+  - **Rows:** Age Range, Gender  
+  - **Columns:** Encounter Class  
+  - **Values:** Average LOS (in Hours)  
 
 🖼️ *Placeholder for visual:*  
 `![Average LOS](images/los_analysis.png)`
 
 ---
 
-### 🔁 Readmissions & Follow-up Visits (Power Query Workflow)
+### 🔁 Readmissions & Follow-up Visits(within 30 days) (Power Query Workflow)
 
 #### Step-by-step in Power Query
 1. **Sort Data:**  
@@ -163,10 +162,13 @@ Built a **Matrix**:
    ```
 4. **Expand Back:**  
    - Expand nested table to flatten grouped structure
-5. **Shift Index:**  
-   - Create `PrevTable` with index +1  
-   - Merge with original to get previous encounter date
-6. **Calculate Readmission Interval:**  
+5. **Create a new file with previous and next values:**
+   - Duplicate the query → name it PrevTable.
+   - In PrevTable, add a Column shifting index by +1: Subtract or Add 1 to Index using “Standard” under Add column
+6. **Merge two tables:**   
+   - Merge on both CustomerID and Index
+   - Expand only the Start Date column from the merged table→ rename it to Prev/Next Encounter Date
+7. **Calculate Readmission Interval:**  
    - Use **Add Column → Date → Subtract Dates** to compute interval between `Prev Encounter` and `Current Stop Date`
 
 #### DAX Measure for 30-Day Readmissions:
@@ -177,6 +179,7 @@ CALCULATE(
     Encounters_Sorted[Encounter_Date_Delta] < 30
 )
 ```
+- Visualizations:  **Card**
 
 🖼️ *Placeholder for visual:*  
 `![Readmission Analysis](images/readmission_30days.png)`
@@ -196,8 +199,8 @@ CALCULATE(
 ## 🛠️ Power Platform Features Highlighted
 | Area | Feature | Purpose |
 |------|----------|----------|
-| **Power Query** | Column Profiling, Conditional Column, Group By, Add Index | Data validation and structuring |
-| **DAX** | `VAR`, `CALCULATE`, `DIVIDE`, `DATEDIFF`, `DISTINCTCOUNT` | Custom KPI and measure calculations |
+| **Power Query** | Column Profile, Conditional Column, Group By, M language, Merge | Data preparation and structuring |
+| **DAX** | `Variables (VAR)`, `CALCULATE`, `Aggregation(SUM, AVG, COUNT, DISTINCT COUNT)`, `TIME INTELLIGENCE(DATEDIFF)`,  | Custom KPI and measure calculations |
 | **Power BI Visuals** | Matrix, Card, Conditional Formatting, Top N Filter | Dynamic insight presentation |
 
 ---
