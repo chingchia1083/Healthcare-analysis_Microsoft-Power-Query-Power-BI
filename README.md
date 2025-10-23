@@ -81,22 +81,12 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 #### Age & Gender Breakdown
 Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
 
-🧮 Method 1: Using M Code
-
-Add a Custom Column in Power Query and use the formula below:
-
-= if [Age] >= 100 then "100+"
-  else 
-    Text.From(Number.RoundDown([Age] / 10) * 10) 
-    & "-" & 
-    Text.From(Number.RoundDown([Age] / 10) * 10 + 9)
-
-**Power Query Formula (M Code) for creating Age Range:**
+# Power Query: Create Age Range Column
+## 🧮 Method 1: Using M Code
 ```m
 = if [Age] >= 100 then "100+"
   else Text.From(Number.RoundDown([Age]/10)*10) & "-" & Text.From(Number.RoundDown([Age]/10)*10 + 9)
-Alternative: conditional column in Power Query
-
+## 🧮 Method 2: Add a conditional column
 
 ```
 
