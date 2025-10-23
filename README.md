@@ -53,7 +53,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ### 🔹 Encounter Analysis
 
 #### Encounter Volume & Trends
-- **Visualizations: **Matrix Table**
+- **Visualizations:**Matrix Table**
   - **Rows:** Date  
   - **Values:** Count of Encounter IDs  
 - Added **Quick Measure:** *Count of Encounters*  
