@@ -22,7 +22,7 @@ The goal of this analysis is to help hospitals leverage data to **improve patien
 
 **Tools & Environment:**
 - **Power Query:** Data cleaning, transformation, and preparation  
-- **Power BI:** Visualization, DAX modeling, and reporting  
+- **Power BI:** DAX & Visualization, Data modeling, and reporting  
 - **Data Model:** Relational model connecting encounters, patients, payers, and procedures
 
 ---
@@ -31,24 +31,9 @@ The goal of this analysis is to help hospitals leverage data to **improve patien
 
 ### 🔍 Initial Data Review
 - **Data Upload:** Imported multiple CSV files into Power Query, saved in the Power BI data model.  
-- **Column Profiling:**  
-  - Enabled **“Column profiling based on entire dataset”** under the *View → Data Preview* menu.  
-  - Used **Column Statistics**, **Column Quality**, and **Value Distribution** to validate completeness, distinct counts, and null values.  
-
-### ⚙️ Data Validation
-- Used **Column Quality** indicators to detect *empty* or *error* values.  
-- Applied **Transform → Statistics** to check *min, max, mean,* and *distribution* for numerical fields.  
-- Identified and confirmed primary keys and foreign key relationships between tables.
-
-### 🧮 Power Query Functions Applied
-| Purpose | Function / Tool | Description |
-|----------|------------------|-------------|
-| Column Quality Check | `Table.Profile()` | Evaluates nulls, errors, and unique values |
-| Convert Birthdate to Age | `Duration.Days()` + `DateTime.LocalNow()` | Calculates age dynamically |
-| Create Age Range | `Number.RoundDown()` + `if...then...else` | Groups age into 10-year intervals |
-| Sort & Group | `Table.Sort()` + `Table.Group()` | Prepares dataset for readmission analysis |
-| Index Creation | `Table.AddIndexColumn()` | Generates sequential index per patient |
-| Merge Queries | `Table.NestedJoin()` | Merges encounters to create lead/lag comparisons |
+- **Data Preview and Validation:**  
+  - Check **“Value distribution and count, distinct count, Null value, Min and Max”** under the *View → Data Preview → Column Statistics* menu.  
+  - Used **Column Statistics**, **Column Quality**, or **Statistics under Transform** to validate completeness, distinct counts, and null values.  
 
 ---
 
@@ -57,7 +42,7 @@ Established relationships between tables:
 - `Patients` (Dimension)  
 - `Encounters` (Fact Table)  
 - `Payers` (Dimension)  
-- `Procedures` (Dimension)
+- `Procedures` (Fact Table)
 
 Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, ProcedureID).
 
@@ -68,8 +53,8 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ### 🔹 Encounter Analysis
 
 #### Encounter Volume & Trends
-- Built a **Matrix Table**:  
-  - **Rows:** Date hierarchy (Year → Month → Day)  
+- **Visualizations: **Matrix Table**
+  - **Rows:** Date  
   - **Values:** Count of Encounter IDs  
 - Added **Quick Measure:** *Count of Encounters*  
 - Applied *Conditional Formatting* to highlight monthly variations.
