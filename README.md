@@ -171,13 +171,22 @@ DATEDIFF('Encounters'[START], 'Encounters'[STOP], HOUR)
 7. **Calculate Readmission Interval:**  
    - Use **Add Column → Date → Subtract Dates** to compute interval between `Prev Encounter` and `Current Stop Date`
 
-#### DAX Measure for 30-Day Readmissions:
+#### DAX Measure for 30-Day Readmissions(% of total):
 ```DAX
-ReadmissionWithin30Days =
-CALCULATE(
-    DISTINCTCOUNT(Encounters_Sorted[Patient]),
-    Encounters_Sorted[Encounter_Date_Delta] < 30
-)
+ReadmissionBelow30Rate = 
+VAR TotalPatient =
+    DISTINCTCOUNT(encounters_sort[PATIENT.1])
+VAR Readmission =
+    CALCULATE(
+        DISTINCTCOUNT(encounters_sort[PATIENT.1]),
+        FILTER(
+            encounters_sort,
+            encounters_sort[Encounter_Date_Delta] <= 30
+                && NOT ISBLANK(encounters_sort[Encounter_Date_Delta])
+        )
+    )
+RETURN
+DIVIDE(Readmission, TotalPatient)
 ```
 - Visualizations:  **Card**
 
@@ -193,7 +202,9 @@ CALCULATE(
 - **49%** of encounters show **zero payer coverage**.  
 - **Males 30–39** have the **longest average LOS (Ambulatory)**.  
 - **Females 70–79** have the **highest LOS in Inpatient class**.
-
+- The **most common procedures(Encounter for Problem)** are relatively low-cost, while a few specialized ones( Myocardial Infarction and Prenatal initial visit) drive the highest average base costs.
+- A subset of patients shows multiple readmissions within 30 days, indicating potential for targeted care interventions.
+- **771 out of 974 patients** has readmitted within 30 days.
 ---
 
 ## 🛠️ Power Platform Features Highlighted
@@ -220,6 +231,7 @@ Senior Financial Analyst | Power BI & Data Analytics Specialist
 - `images/top_procedures.png` – Top 10 procedures  
 - `images/los_analysis.png` – Average length of stay  
 - `images/readmission_30days.png` – Readmission analysis
+
 
 ---
 
