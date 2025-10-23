@@ -65,7 +65,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ---
 
 #### Encounter Class Distribution
-- Visualizations: **Matrix visual** with *Encounter Class* in Rows and *Count of IDs* in Values.
+- Visualizations: **Matrix visual**
   - **Rows:** Encounter Class  
   - **Values:** Count of IDs and Count of IDs show as % of Grand Total
 
@@ -79,12 +79,25 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ---
 
 #### Age & Gender Breakdown
-Converted **Birthday → Age → Age Range** in Power Query.
+Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
 
-**Power Query Formula (M Code):**
+🧮 Method 1: Using M Code
+
+Add a Custom Column in Power Query and use the formula below:
+
+= if [Age] >= 100 then "100+"
+  else 
+    Text.From(Number.RoundDown([Age] / 10) * 10) 
+    & "-" & 
+    Text.From(Number.RoundDown([Age] / 10) * 10 + 9)
+
+**Power Query Formula (M Code) for creating Age Range:**
 ```m
 = if [Age] >= 100 then "100+"
   else Text.From(Number.RoundDown([Age]/10)*10) & "-" & Text.From(Number.RoundDown([Age]/10)*10 + 9)
+Alternative: conditional column in Power Query
+
+
 ```
 
 Built a **Matrix Table**:
