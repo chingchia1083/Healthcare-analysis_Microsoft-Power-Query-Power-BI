@@ -53,7 +53,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ### 🔹 Encounter Analysis
 
 #### Encounter Volume & Trends
-- **Visualizations:**Matrix Table**
+- Visualizations:**Matrix Table**
   - **Rows:** Date  
   - **Values:** Count of Encounter IDs  
 - Added **Quick Measure:** *Count of Encounters*  
@@ -65,8 +65,9 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 ---
 
 #### Encounter Class Distribution
-- Built a **Matrix visual** with *Encounter Class* in Rows and *Count of IDs* in Values.  
-- Added % of Grand Total to show share of each class.  
+- Visualizations: **Matrix visual** with *Encounter Class* in Rows and *Count of IDs* in Values.
+  - **Rows:** Encounter Class  
+  - **Values:** Count of IDs and Count of IDs show as % of Grand Total
 
 🧩 **Key Power BI Features Used:**
 - *Show Values As → % of Grand Total*  
