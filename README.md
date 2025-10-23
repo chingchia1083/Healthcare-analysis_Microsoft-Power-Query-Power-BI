@@ -82,14 +82,14 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
 
 #### Power Query: Create Age Range Column
-🧮 Method 1: Using M Code
+- 🧮 Method 1: **M code**
      ```
      m
       = if [Age] >= 100 then "100+"
         else Text.From(Number.RoundDown([Age]/10)*10) & "-" & Text.From(Number.RoundDown([Age]/10)*10 + 9)
      ```
-🧮 Method 2: 
-    -Add a conditional column
+- 🧮 Method 2: 
+    -**Conditional Column**
 
 - Visualizations: **Matrix Table**:
   - **Rows:** Encounter Class, Gender  
