@@ -224,7 +224,7 @@ Senior Financial Analyst | Power BI & Data Analytics Specialist
 ---
 
 ## 🖼️ Visualization Placeholders
-- `Image/encounter_volume.png` – Encounter volume trend  
+- Image/encounter_volume.png` – Encounter volume trend  
 - `images/encounter_class_distribution.png` – Encounter class % by year  
 - `images/encounter_age_gender.png` – Encounters by age and gender  
 - `images/zero_payer_card.png` – Zero payer percentage  
