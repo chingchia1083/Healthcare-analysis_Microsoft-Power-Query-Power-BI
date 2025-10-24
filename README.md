@@ -143,7 +143,7 @@ DATEDIFF('Encounters'[START], 'Encounters'[STOP], HOUR)
   - **Columns:** Encounter Class  
   - **Values:** Average LOS (in Hours)  
 
-![Average LOS](Images/los_analysis.png)
+![Average LOS](Image/los_analysis.png)
 
 ---
 
