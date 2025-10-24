@@ -124,7 +124,8 @@ Displayed using a **Card Visual** for overall percentage of zero-payer encounter
   - **Values:** Count of IDs and Average of total claim cost 
 - Applied **Top N Filter (10)** on Procedure Description by value (count of Id).
 
-![Top Procedures](Image/top_procedures.png)
+![Top Procedures](Image/top_procedures_encounter.png)
+![Top Procedures](Image/top_procedures_cost.png)
 
 ---
 
