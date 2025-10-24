@@ -60,7 +60,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 - Applied *Conditional Formatting* to highlight monthly variations.
 
 🖼️ *Placeholder for visual:*  
-`![Encounter Volume Trend](images/encounter_volume.png)`
+`![Encounter Volume Trend](image/encounter_volume.png)`
 
 ---
 
