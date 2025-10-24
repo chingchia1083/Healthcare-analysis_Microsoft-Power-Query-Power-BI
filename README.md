@@ -218,12 +218,12 @@ Senior Financial Analyst | Power BI & Data Analytics Specialist
 
 ## 🖼️ Visualization Placeholders
 - `Image/encounter_volume.png` – Encounter volume trend  
-- `images/encounter_class_distribution.png` – Encounter class % by year  
-- `images/encounter_age_gender.png` – Encounters by age and gender  
-- `images/zero_payer_card.png` – Zero payer percentage  
-- `images/top_procedures.png` – Top 10 procedures  
-- `images/los_analysis.png` – Average length of stay  
-- `images/readmission_30days.png` – Readmission analysis
+- `Image/encounter_class_distribution.png` – Encounter class % by year  
+- `Image/encounter_age_gender.png` – Encounters by age and gender  
+- `Image/zero_payer_card.png` – Zero payer percentage  
+- `Image/top_procedures.png` – Top 10 procedures  
+- `Image/los_analysis.png` – Average length of stay  
+- `Image/readmission_30days.png` – Readmission analysis
 
 
 ---
