@@ -58,8 +58,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
   - **Values:** Count of Encounter IDs  
 - Added **Quick Measure:** *Count of Encounters*  
 - Applied *Conditional Formatting* to highlight monthly variations.
-
-🖼️ *Placeholder for visual:*  
+ 
 ![Encounter Volume Trend](Image/encounter_volume.png)
 
 ---
@@ -73,8 +72,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 - *Show Values As → % of Grand Total*  
 - *Conditional Formatting → Background Color Scales*
 
-🖼️ *Placeholder for visual:*  
-`![Encounter Class Distribution](images/encounter_class_distribution.png)`
+![Encounter Class Distribution](Image/encounter_class_distribution.png)
 
 ---
 
@@ -93,10 +91,9 @@ Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
 - Visualizations: **Matrix Table**:
   - **Rows:** Encounter Class, Gender  
   - **Columns:** Age Range  
-  - **Values:** Count of Encounters  
-
-🖼️ *Placeholder for visual:*  
-`![Encounter by Age & Gender](images/encounter_age_gender.png)`
+  - **Values:** Count of Encounters
+  - 
+![Encounter by Age & Gender](Image/encounter_age_gender.png)
 
 ---
 
@@ -114,8 +111,7 @@ RETURN DIVIDE(zero_payer, total_Id)
 
 Displayed using a **Card Visual** for overall percentage of zero-payer encounters.
 
-🖼️ *Placeholder for visual:*  
-`![Zero Payer Coverage Card](images/zero_payer_card.png)`
+![Zero Payer Coverage Card](Image/zero_payer_card.png)
 
 ---
 
@@ -125,8 +121,7 @@ Displayed using a **Card Visual** for overall percentage of zero-payer encounter
   - **Values:** Count of IDs and Average of total claim cost 
 - Applied **Top N Filter (10)** on Procedure Description by value (count of Id).
 
-🖼️ *Placeholder for visual:*  
-`![Top Procedures](images/top_procedures.png)`
+![Top Procedures](Image/top_procedures.png)
 
 ---
 
@@ -144,8 +139,7 @@ DATEDIFF('Encounters'[START], 'Encounters'[STOP], HOUR)
   - **Columns:** Encounter Class  
   - **Values:** Average LOS (in Hours)  
 
-🖼️ *Placeholder for visual:*  
-`![Average LOS](images/los_analysis.png)`
+![Average LOS](Images/los_analysis.png)
 
 ---
 
@@ -189,9 +183,8 @@ RETURN
 DIVIDE(Readmission, TotalPatient)
 ```
 - Visualizations:  **Card**
-
-🖼️ *Placeholder for visual:*  
-`![Readmission Analysis](images/readmission_30days.png)`
+  
+![Readmission Analysis](Image/readmission_30days.png)
 
 ---
 
