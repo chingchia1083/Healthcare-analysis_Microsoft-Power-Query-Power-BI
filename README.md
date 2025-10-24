@@ -92,7 +92,10 @@ Converted **Birthday → Age → Duration: Day → Age Range** in Power Query.
   - **Rows:** Encounter Class, Gender  
   - **Columns:** Age Range  
   - **Values:** Count of Encounters
-  - 
+    
+🧩 **Key Power BI Features Used:**
+- *Conditional Formatting → Background Color Scales*
+
 ![Encounter by Age & Gender](Image/encounter_age_gender.png)
 
 ---
