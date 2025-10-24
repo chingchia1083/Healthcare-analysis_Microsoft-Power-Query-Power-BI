@@ -60,7 +60,7 @@ Each table connected via appropriate foreign keys (e.g., PatientID, PayerID, Pro
 - Applied *Conditional Formatting* to highlight monthly variations.
 
 🖼️ *Placeholder for visual:*  
-`![Encounter Volume Trend](image/encounter_volume.png)`
+`![Encounter Volume Trend](Image/encounter_volume.png)`
 
 ---
 
@@ -224,7 +224,7 @@ Senior Financial Analyst | Power BI & Data Analytics Specialist
 ---
 
 ## 🖼️ Visualization Placeholders
-- `images/encounter_volume.png` – Encounter volume trend  
+- `Image/encounter_volume.png` – Encounter volume trend  
 - `images/encounter_class_distribution.png` – Encounter class % by year  
 - `images/encounter_age_gender.png` – Encounters by age and gender  
 - `images/zero_payer_card.png` – Zero payer percentage  
